@@ -1,6 +1,6 @@
 # AbleEd 🚀
 
-![AbleEd Logo](assets/NoBGlogo.png)
+![AbleEd Logo](/assets/NoBGlogo.png)
 
 **Accessible Learning for Everyone**  
 An initiative by **Crown IQ**
