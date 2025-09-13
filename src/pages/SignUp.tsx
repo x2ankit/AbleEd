@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { GraduationCap, Eye, EyeOff, Mail, UserRound } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { login } from "@/lib/auth";
 
 const schema = z
   .object({
