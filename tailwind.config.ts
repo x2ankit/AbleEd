@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -77,27 +82,33 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      boxShadow: {
+        glow: "0 0 20px rgba(59, 130, 246, 0.6)",
+        soft: "0 4px 12px rgba(0,0,0,0.1)",
+      },
+      transitionProperty: {
+        smooth: "all 0.3s ease-in-out",
+      },
+      backgroundImage: {
+        "gradient-button":
+          "linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)",
+        "glass":
+          "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%)",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  plugins: [require('tailwindcss-animate')],
 } satisfies Config;
