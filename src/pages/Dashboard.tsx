@@ -149,7 +149,7 @@ export default function Dashboard() {
         </SidebarFooter>
       </Sidebar>
 
-      <SidebarInset>
+      <SidebarInset className="bg-gradient-to-br from-rose-50 to-sky-50">
         {/* Header */}
         <header className="sticky top-0 z-10 flex h-16 items-center gap-3 border-b bg-background/70 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/50">
           <SidebarTrigger aria-label="Toggle sidebar" />
