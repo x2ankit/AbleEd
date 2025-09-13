@@ -57,11 +57,11 @@ const HeroSection = () => {
                 size="lg"
                 variant="outline"
                 className="btn-secondary group"
-                aria-label="Explore interactive 3D lessons"
+                aria-label="Open 3D models preview"
               >
-                <Link to="/dashboard">
+                <Link to="/dashboard#models">
                   <Play className="mr-2 h-5 w-5" />
-                  Explore 3D Lessons
+                  3D Models
                 </Link>
               </Button>
             </div>
