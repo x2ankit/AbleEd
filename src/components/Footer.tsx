@@ -11,11 +11,11 @@ const Footer = () => {
           <div className="glass-card bg-white/10 backdrop-blur-md border-white/20 p-6 max-w-md mx-auto">
             <div className="flex items-center justify-center space-x-3 mb-3">
               <Zap className="h-6 w-6 text-warning" />
-              <span className="text-xl font-bold text-white">Built for Hackathon 2024</span>
+              <span className="text-xl font-bold text-white">Built by Team CrownIQ</span>
               <Zap className="h-6 w-6 text-warning" />
             </div>
             <p className="text-white/80 text-sm">
-              Crafted with passion for accessible education
+              Unlocking education for every ability
             </p>
           </div>
 
@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com/ableed-platform"
+              href="https://github.com/x2ankit/AbleEd.git"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 glass-card bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
@@ -42,7 +42,7 @@ const Footer = () => {
             </a>
             
             <a
-              href="https://twitter.com/ableed_platform"
+              href="https://twitter.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 glass-card bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
@@ -52,7 +52,7 @@ const Footer = () => {
             </a>
             
             <a
-              href="https://linkedin.com/company/ableed"
+              href="https://linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 glass-card bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
@@ -67,7 +67,7 @@ const Footer = () => {
             <div className="flex items-center justify-center space-x-2 text-white/70">
               <span>Made with</span>
               <Heart className="h-4 w-4 text-destructive animate-pulse" />
-              <span>for accessible education</span>
+              <span>by Team CrownIQ</span>
             </div>
             
             <p className="text-white/50 text-sm">

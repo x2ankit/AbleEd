@@ -20,14 +20,19 @@ const HeroSection = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
-                Learn Smarter,
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-accent-light">
-                  Explore Further
-                </span>
-                <span className="ml-2">🚀</span>
-              </h1>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+  <span className="text-white">Able</span>
+  <span className="text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-accent-light">
+    Ed
+  </span>
+  <br />
+  <span className="text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-accent-light">
+    Beyond Barriers
+  </span>
+  <span className="ml-2">🚀</span>
+</h1>
+
+
               <p className="text-xl lg:text-2xl text-white/90 max-w-lg">
                 Accessible, interactive lessons for everyone. Experience the future of education with AI-powered learning.
               </p>
@@ -75,7 +80,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="relative glass-card p-4 pulse-glow">
               <img
-                src={heroImage}
+                src={heroImage as string}
                 alt="Futuristic 3D educational models including solar system and anatomy"
                 className="w-full h-auto rounded-lg shadow-2xl"
                 loading="eager"
