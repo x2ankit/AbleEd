@@ -5,7 +5,7 @@
 **Accessible Learning for Everyone**  
 An initiative by **Crown IQ**
 
-🔗 **Live Demo:** [https://able-ed-three.vercel.app](https://able-ed-three.vercel.app)
+🔗 **Live Demo:** [Click to View](https://able-ed-three.vercel.app)
 
 ---
 
@@ -17,14 +17,14 @@ An initiative by **Crown IQ**
 - [Installation](#installation)
 - [Usage](#usage)
 - [Deployment](#deployment)
-- [License](#license)
+- [Credits](#credits)
 
 ---
 
 ## About
 
-AbleEd is an **inclusive learning platform** designed to break barriers in education.  
-It combines **interactive 3D lessons, haptic feedback, and adaptive accessibility features** to provide an engaging learning experience for students with disabilities.
+AbleEd is an **inclusive learning platform** designed to break barriers in education mainly for disabled student.  
+It combines **interactive ,text to speech, 3D lessons, haptic feedback, and adaptive accessibility features** to provide an engaging learning experience for students with disabilities.
 
 **Goal:** Empower learners of all abilities to access knowledge **without limits**.
 
@@ -76,7 +76,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173 in your browser to view the app locally.
+Open http://localhost:xxxx in your browser to view the app locally.
 
 ---
 
@@ -92,28 +92,13 @@ Open http://localhost:5173 in your browser to view the app locally.
 ## Deployment
 
 AbleEd is deployed on Vercel:
-[https://able-ed-three.vercel.app](https://able-ed-three.vercel.app)
+[Click to View](https://able-ed-three.vercel.app)
 
 ---
 
-## Assets / Logo
+## Credits
 
-- **Logo:** assets/NoBGlogo.png
-- **Favicon:** assets/NoBGlogo.ico
-
----
-
-## License
-
-This project is an initiative by Crown IQ and is free to use for educational purposes.
+This project is an initiative by me and is free to use for educational purposes.
 
 ---
 
-I've fixed the formatting issues in your README.md file by:
-- Adding proper line breaks between sections
-- Fixing the code block formatting with proper triple backticks
-- Ensuring consistent spacing throughout
-- Making the section headers more clearly separated
-- Improving the overall readability while maintaining all your original content
-
-The structure is now cleaner and follows standard Markdown conventions for GitHub README files.
