@@ -1,57 +1,40 @@
-import { 
-  Volume2, 
-  Subtitles, 
-  BookOpen, 
-  Hand, 
-  Brain, 
+import {
+  Volume2,
+  Subtitles,
+  BookOpen,
+  Hand,
+  Brain,
   Eye,
   Lightbulb,
-  Heart
+  Heart,
+  Accessibility,
+  Box,
+  ActivitySquare,
+  Goal,
+  Keyboard,
+  Mic,
+  MessageSquareText,
+  Contrast,
+  Layers
 } from "lucide-react";
 
 const features = [
-  {
-    icon: Volume2,
-    title: "Text-to-Speech",
-    description: "Natural voice narration for all content with customizable speed and voice options.",
-    color: "text-primary",
-    bgColor: "bg-primary/10"
-  },
-  {
-    icon: Subtitles,
-    title: "Auto Captions",
-    description: "Real-time captions with visual cues and multiple language support.",
-    color: "text-accent",
-    bgColor: "bg-accent/10"
-  },
-  {
-    icon: BookOpen,
-    title: "Lesson Summarizer",
-    description: "AI-powered summaries that adapt to your learning style and pace.",
-    color: "text-secondary",
-    bgColor: "bg-secondary/10"
-  },
-  {
-    icon: Hand,
-    title: "Gesture Navigation",
-    description: "Navigate with hand gestures - perfect for students with mobility challenges.",
-    color: "text-success",
-    bgColor: "bg-success/10"
-  },
-  {
-    icon: Brain,
-    title: "Emotion-Aware Tutor",
-    description: "AI tutor that adapts to your emotional state and learning progress.",
-    color: "text-warning",
-    bgColor: "bg-warning/10"
-  },
-  {
-    icon: Eye,
-    title: "Visual Focus Mode",
-    description: "Reduces visual clutter and highlights key information automatically.",
-    color: "text-primary",
-    bgColor: "bg-primary/10"
-  }
+  { icon: Volume2, title: "Text-to-Speech", description: "Natural voice narration for all content with customizable speed and voice options.", color: "text-primary", bgColor: "bg-primary/10" },
+  { icon: Subtitles, title: "Auto Captions", description: "Real-time captions with visual cues and multiple language support.", color: "text-accent", bgColor: "bg-accent/10" },
+  { icon: BookOpen, title: "Lesson Summarizer", description: "AI-powered summaries that adapt to your learning style and pace.", color: "text-secondary", bgColor: "bg-secondary/10" },
+  { icon: Accessibility, title: "UI Accessibility", description: "High-contrast, alt text, ARIA, consistent layouts.", color: "text-primary", bgColor: "bg-primary/10" },
+  { icon: Hand, title: "Gesture-Based Navigation", description: "Navigate with hand gestures - perfect for mobility challenges.", color: "text-success", bgColor: "bg-success/10" },
+  { icon: Brain, title: "Emotion-Aware Tutor", description: "Adaptive tips based on engagement and focus.", color: "text-warning", bgColor: "bg-warning/10" },
+  { icon: Box, title: "3D Interactive Lessons", description: "Manipulate models to learn by doing.", color: "text-accent", bgColor: "bg-accent/10" },
+  { icon: ActivitySquare, title: "Haptic Feedback", description: "Feel cues for interactions & alerts.", color: "text-secondary", bgColor: "bg-secondary/10" },
+  { icon: Layers, title: "Multi-Mode Delivery", description: "Video, text, audio, and 3D learning options.", color: "text-primary", bgColor: "bg-primary/10" },
+  { icon: Goal, title: "Daily Goal Tracker", description: "Stay on streak with gentle reminders.", color: "text-success", bgColor: "bg-success/10" },
+  { icon: ActivitySquare, title: "Brain Breaks", description: "Short mindful breaks to recharge.", color: "text-warning", bgColor: "bg-warning/10" },
+  { icon: Accessibility, title: "Screen Reader Support", description: "Optimized landmarks & labels.", color: "text-secondary", bgColor: "bg-secondary/10" },
+  { icon: Contrast, title: "High-Contrast Mode", description: "Sharper colors for readability.", color: "text-accent", bgColor: "bg-accent/10" },
+  { icon: Keyboard, title: "Keyboard Navigation", description: "Tab through all actions with clear focus.", color: "text-primary", bgColor: "bg-primary/10" },
+  { icon: Mic, title: "Voice Commands", description: "Control using your voice.", color: "text-success", bgColor: "bg-success/10" },
+  { icon: MessageSquareText, title: "Visual Notifications", description: "On-screen alerts for sound events.", color: "text-warning", bgColor: "bg-warning/10" },
 ];
 
 const FeaturesSection = () => {
