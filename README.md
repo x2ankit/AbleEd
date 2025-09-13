@@ -99,7 +99,7 @@ AbleEd is deployed on Vercel:
 
 ## Credits
 
-This project is an initiative by me and is free to use for educational purposes.
+This project is an initiative by Ankit Tripathy and is free to use for educational purposes.
 
 ---
 
