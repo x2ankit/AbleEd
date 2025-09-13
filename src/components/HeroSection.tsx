@@ -24,16 +24,16 @@ const HeroSection = () => {
           <div className="text-center lg:text-left space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-  <span className="text-white">Able</span>
-  <span className="text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-accent-light">
-    Ed
-  </span>
-  <br />
-  <span className="text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-accent-light">
-    Beyond Barriers
-  </span>
-  <span className="ml-2">🚀</span>
-</h1>
+                <span className="text-6xl lg:text-8xl text-white">Able</span>
+                <span className="text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-accent-light">
+                  Ed
+                </span>
+                <br />
+                <span className="block text-2xl lg:text-4xl font-semibold max-w-md lg:max-w-xl mx-auto lg:mx-0 leading-snug text-white drop-shadow-lg">
+                  Unlocking education for every ability
+                  <span className="ml-2 text-blue-400">🚀</span>
+                </span>
+              </h1>
 
 
               <p className="text-xl lg:text-2xl text-white/90 max-w-lg">

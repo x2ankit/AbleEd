@@ -11,11 +11,11 @@ const Footer = () => {
           <div className="glass-card bg-white/10 backdrop-blur-md border-white/20 p-6 max-w-md mx-auto">
             <div className="flex items-center justify-center space-x-3 mb-3">
               <Zap className="h-6 w-6 text-warning" />
-              <span className="text-xl font-bold text-white">Built by Team CrownIQ</span>
+              <span className="text-xl font-bold text-white">Built by CrownIQ</span>
               <Zap className="h-6 w-6 text-warning" />
             </div>
             <p className="text-white/80 text-sm">
-              Unlocking education for every ability
+              Unlocking education for every ability.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com/x2ankit/AbleEd.git"
+              href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 glass-card bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
@@ -65,9 +65,10 @@ const Footer = () => {
           {/* Copyright & Credits */}
           <div className="pt-8 border-t border-white/20 space-y-2">
             <div className="flex items-center justify-center space-x-2 text-white/70">
-              <span>Made with</span>
+              <span>An AbleEd Initiative</span>
+              
+              <span>by CrownIQ</span>
               <Heart className="h-4 w-4 text-destructive animate-pulse" />
-              <span>by Team CrownIQ</span>
             </div>
             
             <p className="text-white/50 text-sm">
