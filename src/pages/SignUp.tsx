@@ -36,6 +36,8 @@ export default function SignUp() {
   const navigate = useNavigate();
 
   function onSubmit() {
+    // Set authenticated and continue to dashboard
+    import("@/lib/auth").then(({ login }) => login());
     navigate("/dashboard");
   }
 
