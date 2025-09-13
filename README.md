@@ -1,4 +1,4 @@
-# AbleEd 🚀
+# AbleEd 🚀 - Unlocking education for every ability.
 
 <img src="https://github.com/x2ankit/AbleEd/blob/main/assets/NoBGLogo.png" alt="AbleEd Logo" width="150" style="float: right;"/>
 
