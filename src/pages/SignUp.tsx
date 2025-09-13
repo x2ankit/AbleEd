@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { GraduationCap, Eye, EyeOff, Mail, UserRound } from "lucide-react";
+import { Eye, EyeOff, Mail, UserRound } from "lucide-react";
+import logoPng from "@/assets/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "@/lib/auth";
 
@@ -51,9 +52,7 @@ export default function SignUp() {
         {/* Left panel: brand + illustration */}
         <div className="order-2 md:order-1">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-primary to-secondary text-primary-foreground shadow-[var(--shadow-glow)]">
-              <GraduationCap aria-hidden className="h-6 w-6" />
-            </div>
+            <img src={logoPng as string} alt="AbleEd logo" className="h-12 w-12 object-contain drop-shadow" />
             <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl" aria-label="AbleEd: Accessible Learning for Everyone">
               AbleEd
             </h1>

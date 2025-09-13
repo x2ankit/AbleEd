@@ -21,7 +21,8 @@ import { Progress } from "@/components/ui/progress";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Separator } from "@/components/ui/separator";
 import { Link, useNavigate } from "react-router-dom";
-import { BookOpen, Box, Home, Settings2, User, LogOut, GraduationCap, BarChart3, Type, Contrast, Volume2, Keyboard, Brain, ActivitySquare, MessageSquareText, Accessibility, Waves, Goal, Sparkles, Mic } from "lucide-react";
+import { BookOpen, Box, Home, Settings2, User, LogOut, BarChart3, Type, Contrast, Volume2, Keyboard, Brain, ActivitySquare, MessageSquareText, Accessibility, Waves, Goal, Sparkles, Mic } from "lucide-react";
+import logoPng from "@/assets/Logo.png";
 import { useEffect, useMemo, useState, type ComponentType } from "react";
 import { isAuthenticated, onAuthChange, logout as authLogout } from "@/lib/auth";
 
@@ -89,9 +90,7 @@ export default function Dashboard() {
       <Sidebar className="border-r">
         <SidebarHeader>
           <div className="flex items-center gap-2 px-2 py-1.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-tr from-primary to-secondary text-primary-foreground">
-              <GraduationCap className="h-4 w-4" aria-hidden />
-            </div>
+            <img src={logoPng as string} alt="AbleEd logo" className="h-8 w-8 object-contain" />
             <span className="text-sm font-semibold">AbleEd</span>
           </div>
         </SidebarHeader>
@@ -155,9 +154,7 @@ export default function Dashboard() {
           <SidebarTrigger aria-label="Toggle sidebar" />
           <Separator orientation="vertical" className="mr-2 h-6" />
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-tr from-primary to-secondary text-primary-foreground">
-              <GraduationCap className="h-4 w-4" aria-hidden />
-            </div>
+            <img src={logoPng as string} alt="AbleEd logo" className="h-8 w-8 object-contain" />
             <span className="font-semibold">AbleEd Dashboard</span>
           </div>
           <div className="ml-auto flex items-center gap-3">
@@ -254,7 +251,7 @@ export default function Dashboard() {
             {features.map((f, idx) => {
               const Icon = f.icon;
               return (
-                <Card key={f.key} className="glass-card-hover transition-transform hover:-translate-y-1" role="article" aria-label={f.title} style={{ animation: `fadeInUp 0.4s ease-out ${(idx * 60) / 1000}s both` }}>
+                <Card key={f.key} className="glass-card-hover transition-transform hover:-translate-y-1 hover:shadow-glow" role="article" aria-label={f.title} style={{ animation: `fadeInUp 0.4s ease-out ${(idx * 60) / 1000}s both` }}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-base">
                       <Icon className="h-4 w-4" /> {f.title}
