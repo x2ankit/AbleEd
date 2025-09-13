@@ -62,8 +62,20 @@ export default function Dashboard() {
   const [highContrast, setHighContrast] = useState(false);
   const [largeFont, setLargeFont] = useState(false);
   const [ttsEnabled, setTtsEnabled] = useState(false);
+  const [weeklyProgress, setWeeklyProgress] = useState(0);
+  const [breakSeconds, setBreakSeconds] = useState(60);
+  const [breakRunning, setBreakRunning] = useState(false);
 
   useEffect(() => onAuthChange(setAuthed), []);
+useEffect(() => {
+  const id = setTimeout(() => setWeeklyProgress(72), 200);
+  return () => clearTimeout(id);
+}, []);
+useEffect(() => {
+  if (!breakRunning) return;
+  const id = setInterval(() => setBreakSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
+  return () => clearInterval(id);
+}, [breakRunning]);
 
   useEffect(() => {
     const body = document.body;
@@ -214,17 +226,17 @@ export default function Dashboard() {
 
           {/* Quick stats */}
           <section aria-labelledby="stats-title" className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Card className="glass-card-hover transition-transform hover:-translate-y-1">
+            <Card className="glass-card-hover transition-transform hover:-translate-y-1" style={{ animation: "fadeInUp 0.4s ease-out both" }}>
               <CardHeader>
                 <CardTitle className="text-base">Weekly Progress</CardTitle>
                 <CardDescription>Keep up the great work</CardDescription>
               </CardHeader>
               <CardContent>
-                <Progress value={72} aria-label="Weekly progress 72%" />
-                <p className="mt-2 text-sm text-muted-foreground">72% complete</p>
+                <Progress value={weeklyProgress} aria-label={`Weekly progress ${weeklyProgress}%`} />
+                <p className="mt-2 text-sm text-muted-foreground">{weeklyProgress}% complete</p>
               </CardContent>
             </Card>
-            <Card className="glass-card-hover transition-transform hover:-translate-y-1">
+            <Card className="glass-card-hover transition-transform hover:-translate-y-1" style={{ animation: "fadeInUp 0.4s ease-out 0.08s both" }}>
               <CardHeader>
                 <CardTitle className="text-base flex items-center gap-2"><BarChart3 className="h-4 w-4" /> Active Streak</CardTitle>
                 <CardDescription>Consistency pays off</CardDescription>
@@ -234,7 +246,7 @@ export default function Dashboard() {
                 <p className="text-sm text-muted-foreground">You're on fire</p>
               </CardContent>
             </Card>
-            <Card className="glass-card-hover transition-transform hover:-translate-y-1">
+            <Card className="glass-card-hover transition-transform hover:-translate-y-1" style={{ animation: "fadeInUp 0.4s ease-out 0.16s both" }}>
               <CardHeader>
                 <CardTitle className="text-base">Completed Lessons</CardTitle>
                 <CardDescription>Total finished</CardDescription>
@@ -326,6 +338,46 @@ export default function Dashboard() {
               </Card>
             </section>
           </div>
+
+          {/* Brain Breaks */}
+          <section aria-labelledby="brainbreaks-title" className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <Card className="glass-card-hover lg:col-span-2" role="region" aria-labelledby="brainbreaks-title">
+              <CardHeader>
+                <CardTitle id="brainbreaks-title" className="flex items-center gap-2"><ActivitySquare className="h-4 w-4" /> Brain Break</CardTitle>
+                <CardDescription>Take a short mindful break to recharge.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col items-center gap-4">
+                  <div className="relative">
+                    <div className="size-24 rounded-full gradient-glow animate-pulse" aria-hidden />
+                    <div className="absolute inset-0 m-2 rounded-full border-2 border-primary/50" aria-hidden />
+                    <div className="absolute inset-0 flex items-center justify-center text-2xl font-semibold" aria-live="polite" aria-atomic="true">{breakSeconds}s</div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" onClick={() => { setBreakRunning(true); }} aria-pressed={breakRunning} aria-label="Start brain break">Start</Button>
+                    <Button size="sm" variant="outline" onClick={() => { setBreakRunning(false); }} aria-label="Pause brain break">Pause</Button>
+                    <Button size="sm" variant="secondary" onClick={() => { setBreakRunning(false); setBreakSeconds(60); }} aria-label="Reset brain break">Reset</Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Breathe in for 4s, hold 4s, out 4s. Repeat.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="glass-card-hover">
+              <CardHeader>
+                <CardTitle className="text-base">Gamified Goals</CardTitle>
+                <CardDescription>Complete daily targets to earn badges.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-3">
+                  <div className="progress-circle" aria-hidden />
+                  <div>
+                    <p className="text-sm">Daily Goal</p>
+                    <p className="text-muted-foreground text-sm">Stay consistent to grow your streak.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
 
           {/* Accessibility settings link */}
           <section id="accessibility" aria-labelledby="accessibility-title">
