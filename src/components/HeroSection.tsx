@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-education.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -40,22 +41,28 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="btn-primary group"
                 aria-label="Start your learning journey"
               >
-                Start Learning
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <Link to="/signup">
+                  Start Learning
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
                 className="btn-secondary group"
                 aria-label="Explore interactive 3D lessons"
               >
-                <Play className="mr-2 h-5 w-5" />
-                Explore 3D Lessons
+                <Link to="/dashboard">
+                  <Play className="mr-2 h-5 w-5" />
+                  Explore 3D Lessons
+                </Link>
               </Button>
             </div>
 
