@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-education.jpg";
+import { Link, useNavigate } from "react-router-dom";
+import { isAuthenticated } from "@/lib/auth";
+import { useCallback } from "react";
 
 const HeroSection = () => {
   return (
@@ -40,22 +43,18 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
-                className="btn-primary group"
-                aria-label="Start your learning journey"
-              >
-                Start Learning
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <StartLearningButton />
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
                 className="btn-secondary group"
-                aria-label="Explore interactive 3D lessons"
+                aria-label="Open 3D models preview"
               >
-                <Play className="mr-2 h-5 w-5" />
-                Explore 3D Lessons
+                <Link to="/dashboard#models">
+                  <Play className="mr-2 h-5 w-5" />
+                  3D Models
+                </Link>
               </Button>
             </div>
 
@@ -101,5 +100,20 @@ const HeroSection = () => {
     </section>
   );
 };
+
+function StartLearningButton() {
+  const navigate = useNavigate();
+  const onClick = useCallback(() => {
+    if (isAuthenticated()) navigate("/dashboard");
+    else navigate("/signup");
+  }, [navigate]);
+
+  return (
+    <Button size="lg" className="btn-primary group" aria-label="Start your learning journey" onClick={onClick}>
+      Start Learning
+      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+    </Button>
+  );
+}
 
 export default HeroSection;
