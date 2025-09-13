@@ -20,10 +20,70 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Separator } from "@/components/ui/separator";
-import { Link } from "react-router-dom";
-import { BookOpen, Box, Home, Settings2, User, LogOut, GraduationCap, BarChart3 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { BookOpen, Box, Home, Settings2, User, LogOut, GraduationCap, BarChart3, Type, Contrast, Volume2, Keyboard, Brain, ActivitySquare, MessageSquareText, Accessibility, Waves, Goal, Sparkles, Mic } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { isAuthenticated, onAuthChange, logout as authLogout } from "@/lib/auth";
+
+type UserType = "visual" | "hearing" | "motor" | "cognitive";
+
+type Feature = {
+  key: string;
+  title: string;
+  description: string;
+  categories: UserType[];
+  icon: React.ComponentType<{ className?: string }>;
+};
+
+const ALL_FEATURES: Feature[] = [
+  { key: "tts", title: "Text-to-Speech", description: "Hear any lesson read aloud.", categories: ["visual", "cognitive"], icon: Volume2 },
+  { key: "captions", title: "Captions", description: "Auto captions for videos and audio.", categories: ["hearing"], icon: MessageSquareText },
+  { key: "summarizer", title: "Lesson Summarizer", description: "Concise bullet summaries for focus.", categories: ["cognitive"], icon: Sparkles },
+  { key: "ui-accessibility", title: "UI Accessibility", description: "High contrast, alt text, ARIA, consistent layouts.", categories: ["visual", "motor"], icon: Accessibility },
+  { key: "gesture-nav", title: "Gesture Navigation", description: "Navigate lessons with simple gestures.", categories: ["motor"], icon: Waves },
+  { key: "emotion-tutor", title: "Emotion-Aware Tutor", description: "Adaptive tips based on engagement.", categories: ["cognitive"], icon: Brain },
+  { key: "models-3d", title: "3D Interactive Lessons", description: "Manipulate models to learn by doing.", categories: ["visual", "motor", "cognitive"], icon: Box },
+  { key: "haptics", title: "Haptic Feedback", description: "Feel cues for interactions & alerts.", categories: ["visual", "motor"], icon: ActivitySquare },
+  { key: "multi-mode", title: "Multi‑Mode Delivery", description: "Video, text, audio, and 3D choices.", categories: ["visual", "hearing", "motor", "cognitive"], icon: Goal },
+  { key: "daily-goal", title: "Daily Goal Tracker", description: "Stay on streak with gentle reminders.", categories: ["cognitive"], icon: Goal },
+  { key: "breaks", title: "Brain Breaks", description: "Short resets to improve retention.", categories: ["cognitive"], icon: ActivitySquare },
+  { key: "screen-reader", title: "Screen Reader Support", description: "Optimized landmarks & labels.", categories: ["visual"], icon: Accessibility },
+  { key: "contrast", title: "High‑Contrast Mode", description: "Sharper colors for readability.", categories: ["visual"], icon: Contrast },
+  { key: "keyboard", title: "Keyboard Navigation", description: "Tab through all actions.", categories: ["motor"], icon: Keyboard },
+  { key: "voice", title: "Voice Commands", description: "Control using your voice.", categories: ["motor", "visual"], icon: Mic },
+  { key: "visual-notifs", title: "Visual Notifications", description: "On‑screen alerts for sounds.", categories: ["hearing"], icon: MessageSquareText },
+];
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+  const [authed, setAuthed] = useState<boolean>(isAuthenticated());
+  const [types, setTypes] = useState<UserType[]>([]);
+  const [highContrast, setHighContrast] = useState(false);
+  const [largeFont, setLargeFont] = useState(false);
+  const [ttsEnabled, setTtsEnabled] = useState(false);
+
+  useEffect(() => onAuthChange(setAuthed), []);
+
+  useEffect(() => {
+    const body = document.body;
+    body.classList.toggle("high-contrast", highContrast);
+    body.classList.toggle("text-[18px]", largeFont);
+  }, [highContrast, largeFont]);
+
+  const features = useMemo(() => {
+    if (types.length === 0) return ALL_FEATURES;
+    return ALL_FEATURES.filter((f) => f.categories.some((c) => types.includes(c)));
+  }, [types]);
+
+  function toggleType(t: UserType) {
+    setTypes((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
+  }
+
+  function handleLogout() {
+    authLogout();
+    navigate("/");
+  }
+
   return (
     <SidebarProvider>
       <Sidebar className="border-r">
@@ -101,10 +161,12 @@ export default function Dashboard() {
             <span className="font-semibold">AbleEd Dashboard</span>
           </div>
           <div className="ml-auto flex items-center gap-3">
-            <Button asChild variant="ghost" className="hidden sm:inline-flex">
-              <Link to="/signup">Create account</Link>
-            </Button>
-            <Button variant="secondary" className="hidden sm:inline-flex" aria-label="Logout">
+            {!authed && (
+              <Button asChild variant="ghost" className="hidden sm:inline-flex">
+                <Link to="/signup">Create account</Link>
+              </Button>
+            )}
+            <Button variant="secondary" className="hidden sm:inline-flex" aria-label="Logout" onClick={handleLogout}>
               <LogOut className="h-4 w-4" /> Logout
             </Button>
             <Avatar className="h-8 w-8">
@@ -115,6 +177,44 @@ export default function Dashboard() {
 
         {/* Main content */}
         <div className="mx-auto w-full max-w-7xl space-y-6 p-4 md:p-6 lg:p-8">
+          {/* Accessibility preferences */}
+          <section aria-labelledby="prefs-title" className="grid grid-cols-1 gap-4">
+            <Card className="glass-card-hover">
+              <CardHeader>
+                <CardTitle id="prefs-title">Your accessibility preferences</CardTitle>
+                <CardDescription>Select needs to tailor features below.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap gap-2" role="group" aria-label="User accessibility types">
+                  <Button variant={types.includes("visual") ? "default" : "outline"} size="sm" onClick={() => toggleType("visual")} aria-pressed={types.includes("visual")}>
+                    <Accessibility className="mr-2 h-4 w-4" /> Visual
+                  </Button>
+                  <Button variant={types.includes("hearing") ? "default" : "outline"} size="sm" onClick={() => toggleType("hearing")} aria-pressed={types.includes("hearing")}>
+                    <MessageSquareText className="mr-2 h-4 w-4" /> Hearing
+                  </Button>
+                  <Button variant={types.includes("motor") ? "default" : "outline"} size="sm" onClick={() => toggleType("motor")} aria-pressed={types.includes("motor")}>
+                    <Keyboard className="mr-2 h-4 w-4" /> Motor
+                  </Button>
+                  <Button variant={types.includes("cognitive") ? "default" : "outline"} size="sm" onClick={() => toggleType("cognitive")} aria-pressed={types.includes("cognitive")}>
+                    <Brain className="mr-2 h-4 w-4" /> Cognitive
+                  </Button>
+                </div>
+                <Separator className="my-2 w-full" />
+                <div className="flex flex-wrap gap-2" role="group" aria-label="Quick toggles">
+                  <Button variant={highContrast ? "default" : "outline"} size="sm" onClick={() => setHighContrast((v) => !v)} aria-pressed={highContrast}>
+                    <Contrast className="mr-2 h-4 w-4" /> High contrast
+                  </Button>
+                  <Button variant={largeFont ? "default" : "outline"} size="sm" onClick={() => setLargeFont((v) => !v)} aria-pressed={largeFont}>
+                    <Type className="mr-2 h-4 w-4" /> Larger text
+                  </Button>
+                  <Button variant={ttsEnabled ? "default" : "outline"} size="sm" onClick={() => setTtsEnabled((v) => !v)} aria-pressed={ttsEnabled}>
+                    <Volume2 className="mr-2 h-4 w-4" /> TTS
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
           {/* Quick stats */}
           <section aria-labelledby="stats-title" className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <Card className="glass-card-hover transition-transform hover:-translate-y-1">
@@ -147,6 +247,23 @@ export default function Dashboard() {
                 <p className="text-sm text-muted-foreground">Great momentum</p>
               </CardContent>
             </Card>
+          </section>
+
+          {/* Feature grid */}
+          <section aria-labelledby="features-title" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((f, idx) => {
+              const Icon = f.icon;
+              return (
+                <Card key={f.key} className="glass-card-hover transition-transform hover:-translate-y-1" role="article" aria-label={f.title} style={{ animation: `fadeInUp 0.4s ease-out ${(idx * 60) / 1000}s both` }}>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-base">
+                      <Icon className="h-4 w-4" /> {f.title}
+                    </CardTitle>
+                    <CardDescription>{f.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              );
+            })}
           </section>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
