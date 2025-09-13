@@ -33,10 +33,10 @@ export default function SignUp() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
-  function onSubmit(data: FormValues) {
-    // This is a UI-only demo handler.
-    // Replace with your auth call as needed.
-    alert(`Welcome to AbleEd, ${data.name}!`);
+  const navigate = useNavigate();
+
+  function onSubmit() {
+    navigate("/dashboard");
   }
 
   return (
