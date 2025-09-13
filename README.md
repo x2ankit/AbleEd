@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# AbleEd 🚀
 
-## Project info
+![AbleEd Logo](assets/NoBGlogo.png)
 
-**URL**: https://lovable.dev/projects/0ee9650f-4d41-47a7-8e31-a2661f228098
+**Accessible Learning for Everyone**  
+An initiative by **Crown IQ**
 
-## How can I edit this code?
+🔗 **Live Demo:** [https://able-ed-three.vercel.app](https://able-ed-three.vercel.app)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Table of Contents
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0ee9650f-4d41-47a7-8e31-a2661f228098) and start prompting.
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [License](#license)
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## About
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+AbleEd is an **inclusive learning platform** designed to break barriers in education.  
+It combines **interactive 3D lessons, haptic feedback, and adaptive accessibility features** to provide an engaging learning experience for students with disabilities.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**Goal:** Empower learners of all abilities to access knowledge **without limits**.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Features
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### ✅ Core Accessibility (must-have)
+1. **Text-to-Speech (TTS)** – Lessons read aloud
+2. **Speech-to-Text (Captions)** – Auto captions for videos/audio
+3. **Lesson Summarizer** – Converts long lessons into short, simple text
+4. **UI Accessibility** – Change font size, high-contrast mode, dyslexia-friendly fonts
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🔥 Innovative / WOW Features
+5. **Gesture-Based Navigation** – Use webcam (MediaPipe) for "next/previous" slide
+6. **Emotion-Aware Tutor** – Detects mood (happy/confused/tired) and adapts content
+7. **3D Interactive Lesson** – Explore prebuilt 3D models (e.g., heart, solar system)
+8. **Haptic Feedback (Mobile)** – Phone vibrates when interacting with models or quizzes
+9. **Multi-Mode Delivery** – Lessons can be:
+   - Read aloud (TTS)
+   - Shown as captions
+   - Summarized
+   - Explored in 3D
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### ⭐ Extra Engagement
+10. **Daily Goal Tracker** – Set learning goals, track streaks, gamified progress
+11. **Brain Breaks** – Short quizzes or breathing exercises after lessons
+12. **Personalized Recommendations** – Suggests lessons based on past performance and mood
+13. **Quick Accessibility Switch** – Toggle between modes instantly (TTS, high-contrast, font size)
+
+---
+
+## Tech Stack
+
+- **Frontend:** Vite, TypeScript, React, shadcn-ui, Tailwind CSS
+- **3D Models:** Three.js / React Three Fiber
+- **Deployment:** Vercel
+
+---
+
+## Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone <YOUR_REPO_URL>
+cd AbleEd
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open http://localhost:5173 in your browser to view the app locally.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Usage
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Explore the dashboard after signing in
+2. Access 3D interactive lessons directly
+3. Use the "Start Learning" button to log in or create an account
+4. Toggle accessibility features as needed
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+AbleEd is deployed on Vercel:
+[https://able-ed-three.vercel.app](https://able-ed-three.vercel.app)
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/0ee9650f-4d41-47a7-8e31-a2661f228098) and click on Share -> Publish.
+## Assets / Logo
 
-## Can I connect a custom domain to my Lovable project?
+- **Logo:** assets/NoBGlogo.png
+- **Favicon:** assets/NoBGlogo.ico
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is an initiative by Crown IQ and is free to use for educational purposes.
+
+---
+
+I've fixed the formatting issues in your README.md file by:
+- Adding proper line breaks between sections
+- Fixing the code block formatting with proper triple backticks
+- Ensuring consistent spacing throughout
+- Making the section headers more clearly separated
+- Improving the overall readability while maintaining all your original content
+
+The structure is now cleaner and follows standard Markdown conventions for GitHub README files.
