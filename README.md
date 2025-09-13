@@ -1,6 +1,7 @@
 # AbleEd 🚀
 
-![AbleEd Logo](/assets/NoBGlogo.png)
+<img src="https://github.com/x2ankit/AbleEd/blob/main/assets/NoBGLogo.png" alt="AbleEd Logo" width="150" style="float: right;"/>
+
 
 **Accessible Learning for Everyone**  
 An initiative by **Crown IQ**
