@@ -65,6 +65,9 @@ export default function Dashboard() {
   const [weeklyProgress, setWeeklyProgress] = useState(0);
   const [breakSeconds, setBreakSeconds] = useState(60);
   const [breakRunning, setBreakRunning] = useState(false);
+  const [weeklyProgress, setWeeklyProgress] = useState(0);
+  const [breakSeconds, setBreakSeconds] = useState(60);
+  const [breakRunning, setBreakRunning] = useState(false);
 
   useEffect(() => onAuthChange(setAuthed), []);
   useEffect(() => { setAuthed(isAuthenticated()); }, []);
