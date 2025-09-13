@@ -22,7 +22,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Separator } from "@/components/ui/separator";
 import { Link, useNavigate } from "react-router-dom";
 import { BookOpen, Box, Home, Settings2, User, LogOut, GraduationCap, BarChart3, Type, Contrast, Volume2, Keyboard, Brain, ActivitySquare, MessageSquareText, Accessibility, Waves, Goal, Sparkles, Mic } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ComponentType } from "react";
 import { isAuthenticated, onAuthChange, logout as authLogout } from "@/lib/auth";
 
 type UserType = "visual" | "hearing" | "motor" | "cognitive";
@@ -32,7 +32,7 @@ type Feature = {
   title: string;
   description: string;
   categories: UserType[];
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
 };
 
 const ALL_FEATURES: Feature[] = [
