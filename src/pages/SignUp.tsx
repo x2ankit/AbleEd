@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Eye, EyeOff, Mail, UserRound } from "lucide-react";
-import logoPng from "@/assets/Logo.png";
+import logoPng from "../../assets/NoBGLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "@/lib/auth";
 

@@ -22,7 +22,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Separator } from "@/components/ui/separator";
 import { Link, useNavigate } from "react-router-dom";
 import { BookOpen, Box, Home, Settings2, User, LogOut, BarChart3, Type, Contrast, Volume2, Keyboard, Brain, ActivitySquare, MessageSquareText, Accessibility, Waves, Goal, Sparkles, Mic } from "lucide-react";
-import logoPng from "@/assets/Logo.png";
+import logoPng from "../../assets/NoBGLogo.png";
 import { useEffect, useMemo, useState, type ComponentType } from "react";
 import { isAuthenticated, onAuthChange, logout as authLogout } from "@/lib/auth";
 
@@ -67,6 +67,7 @@ export default function Dashboard() {
   const [breakRunning, setBreakRunning] = useState(false);
 
   useEffect(() => onAuthChange(setAuthed), []);
+  useEffect(() => { setAuthed(isAuthenticated()); }, []);
 useEffect(() => {
   const id = setTimeout(() => setWeeklyProgress(72), 200);
   return () => clearTimeout(id);
@@ -170,11 +171,6 @@ useEffect(() => {
             <span className="font-semibold">AbleEd Dashboard</span>
           </div>
           <div className="ml-auto flex items-center gap-3">
-            {!authed && (
-              <Button asChild variant="ghost" className="hidden sm:inline-flex">
-                <Link to="/signup">Create account</Link>
-              </Button>
-            )}
             <Button variant="secondary" className="hidden sm:inline-flex" aria-label="Logout" onClick={handleLogout}>
               <LogOut className="h-4 w-4" /> Logout
             </Button>
