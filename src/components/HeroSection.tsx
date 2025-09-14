@@ -49,11 +49,11 @@ const HeroSection = () => {
                 size="lg"
                 variant="outline"
                 className="btn-secondary group"
-                aria-label="Open 3D models preview"
+                aria-label="Open Classroom"
               >
-                <Link to="/dashboard#models">
+                <Link to="/classroom">
                   <Play className="mr-2 h-5 w-5" />
-                  3D Models
+                  Classroom
                 </Link>
               </Button>
             </div>
