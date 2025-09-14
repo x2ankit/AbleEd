@@ -39,7 +39,7 @@ export default function SignUp() {
 
   function onSubmit() {
     login();
-    navigate("/dashboard");
+    navigate("/classroom");
   }
 
   return (
